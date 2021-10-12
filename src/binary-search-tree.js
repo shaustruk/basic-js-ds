@@ -6,6 +6,13 @@ const { Node } = require('../extensions/list-tree.js');
 * Implement simple binary search tree according to task description
 * using Node from extensions
 */
+/*class Node {
+	constructor(data = null) {
+		this.data = data;
+		this.right = null;
+		this.left = null;
+	}
+}*/
 module.exports = class BinarySearchTree {
 
   node = null; //объявление корня, тк root занято
@@ -25,7 +32,7 @@ return this.node;
      while (currentNode) {  //пока в дереве есть элементы идем=>
       if (newNode.data < currentNode.data) {   //если добавляемое < текущего( сначала это корень)
         if(!currentNode.left) { //если слева от тек ничего нет,  то добавляем туда
-          currentNode.letf = newNode;
+          currentNode.left = newNode;
             return; 
           }
           currentNode = currentNode.left;
@@ -41,15 +48,29 @@ return this.node;
    
   }
 
-  has(/* data */) {
+  has(data) {
+    return searchWithIn(this.node, data); // возвращаем результат вызова ф-ции, которой говорим, где мы ищем - начинаем с корня дерева и что мы ищем - data
+    function searchWithIn (current, data) { //текущий и проверяемый
    
+    if (!current) { //если нет узлов
+      return false;
+    }
+
+    if (current.data === data) { //значения совпали => true
+      return true;
+    }
+    return data < current.data ?
+    searchWithIn(current.left, data) :
+    searchWithIn(current.right, data);
+
+  }
   }
 
-  find(/* data */) {
+  find(data) {
   
   }
 
-  remove(/* data */) {
+  remove(data) {
    
   }
 
