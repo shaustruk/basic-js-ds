@@ -13,13 +13,29 @@ const { NotImplementedError } = require('../extensions/index.js');
  * the output should be [1, 2, 4, 5]
  *
  * Singly - linked lists are already defined with this interface
- * function ListNode(x) {
- *   this.value = x;
- *   this.next = null;
- * }
  */
+ function ListNode(x) {
+  this.value = x;
+  this.next = null;
+  }
 
-module.exports = function removeKFromList(/* l, k */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+
+module.exports = function removeKFromList(l, k) {
+  let current = l; //  
+	if (!current) {return;}
+
+	while(current.next) { //пока есть узлы ???? как это записать для прохода по всем листам???
+
+    if (current.value === k) {  //if текущий равен искомому
+   //переносим ссылку
+
+     current.value = current.next.value; // перезаписываем значание в листе
+	 current.next = current.next.next //здесь перекидываем ссылку
+}
+current = current.next; // если не равен =>переходим к следующему
+
+}
+
+return l;
+  
 }
