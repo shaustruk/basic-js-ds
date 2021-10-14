@@ -14,11 +14,11 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  * Singly - linked lists are already defined with this interface
  */
- function ListNode(x) {
+ /*function ListNode(x) {
   this.value = x;
   this.next = null;
   }
-
+*/
 
 module.exports = function removeKFromList(l, k) {
   let current = l; //  
